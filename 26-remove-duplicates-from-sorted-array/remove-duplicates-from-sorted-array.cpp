@@ -11,7 +11,6 @@ public:
             nums[t]=it;
             t++;
         }
-        int size=st.size();
-        return size;
+        return t;
     }
 };
