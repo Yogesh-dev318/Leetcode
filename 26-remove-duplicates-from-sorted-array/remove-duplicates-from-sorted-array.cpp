@@ -13,7 +13,7 @@ public:
         // }
         // return t;
         int i=0;
-        for(int j=i;j<n;j++){
+        for(int j=0;j<n;j++){
             if(nums[i]!=nums[j]){
                 nums[i+1]=nums[j];
                 i++;
