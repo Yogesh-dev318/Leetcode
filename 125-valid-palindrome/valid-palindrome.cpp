@@ -4,13 +4,13 @@ public:
         if(i>=j){
             return true;
         }
-        else if(ans[i]==ans[j]){
-            return pal(ans,i+1,j-1);
-        }
+        // else if(ans[i]==ans[j]){
+        //     return ;
+        // }
         else if(ans[i]!=ans[j]){
             return false;
         }
-        return -1;
+        return pal(ans,i+1,j-1);
     }
     bool isPalindrome(string s) {
         string ans;
