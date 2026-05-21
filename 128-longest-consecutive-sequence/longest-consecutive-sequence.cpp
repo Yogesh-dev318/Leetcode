@@ -29,15 +29,15 @@ public:
         for(int i=0;i<n;i++){
             st.insert(nums[i]);
         }
-        for(auto it : st){
-            if(st.find(it - 1)==st.end()){
+        for(auto it:st){
+            if(st.find(it-1)==st.end()){
                 int count=1;
-                int x=it;
-                while(st.find(x+1)!=st.end()){
-                    x=x+1;
+                int c=it+1;
+                while(st.find(c)!=st.end()){
                     count++;
+                    longest=max(count,longest);
+                    c=c+1;
                 }
-                longest=max(longest,count);
             }
         }
         return longest;
