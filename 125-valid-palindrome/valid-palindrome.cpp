@@ -4,9 +4,6 @@ public:
         if(i>=j){
             return true;
         }
-        // else if(ans[i]==ans[j]){
-        //     return ;
-        // }
         else if(ans[i]!=ans[j]){
             return false;
         }
