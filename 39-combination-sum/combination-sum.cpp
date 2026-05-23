@@ -11,7 +11,6 @@ public:
             d.push_back(arr[i]);
             combine(i,arr,target-arr[i],ans,d);
             d.pop_back();
-            // target=target+arr[i];
         }
         combine(i+1,arr,target,ans,d);
     }
