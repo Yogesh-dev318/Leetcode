@@ -12,7 +12,7 @@ public:
             return;
         }
         for(int i=ind;i<arr.size();i++){
-            if(i>ind && arr[i]==arr[i-1]){
+            if(i!=ind && arr[i]==arr[i-1]){
                 continue;
             }
             if (arr[i] > target) {
@@ -26,7 +26,7 @@ public:
             }
         }
         }
-        // combine(i+1,arr,target,ans,d);
+        // combine(ind+1,arr,target,ans,d);
     }
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(),candidates.end());
