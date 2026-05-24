@@ -18,7 +18,7 @@ public:
         set<vector<int>> st;
         subsetsum(0,nums,ds,st,n);
         vector<vector<int>> ans(st.begin(),st.end());
-        sort(ans.begin(),ans.end());
+        // sort(ans.begin(),ans.end());
         return ans;
     }
 };
