@@ -16,7 +16,7 @@ public:
                 continue;
             }
             if (arr[i] > target) {
-                break;
+                return;
             }
             else{
                 if(arr[i]<=target){
