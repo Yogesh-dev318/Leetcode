@@ -19,11 +19,9 @@ public:
                 return;
             }
             else{
-                if(arr[i]<=target){
                 d.push_back(arr[i]);
                 combine(i+1,arr,target-arr[i],ans,d);
                 d.pop_back();
-            }
         }
         }
         // combine(ind+1,arr,target,ans,d);
