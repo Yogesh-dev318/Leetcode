@@ -7,7 +7,7 @@ public:
             }
             return;
         }
-        if(ds.size()>k){
+        if(ds.size()==k){
             return;
         }
         for(int i=index;i<=9;i++){
