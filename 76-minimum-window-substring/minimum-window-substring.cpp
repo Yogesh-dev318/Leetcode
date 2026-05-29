@@ -7,7 +7,7 @@ public:
         int r=0,l=0,minl=INT_MAX;
         int count = 0;
         int sindex = -1;
-        int hash[256] ={0}; 
+        map<char,int> hash;
         for(int i=0;i<n;i++){
             hash[t[i]]++;
         }
