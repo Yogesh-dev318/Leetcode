@@ -10,7 +10,7 @@ public:
                 odd++;
             }
             while(odd>k){
-                if(nums[l]&2!=0){
+                if(nums[l]%2!=0){
                     odd--;
                 }
                 l++;
