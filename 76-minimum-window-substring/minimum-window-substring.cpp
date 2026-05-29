@@ -29,6 +29,7 @@ public:
         }
         r++;
        }
-       return sindex==-1?"":s.substr(sindex,minl);
+       if (sindex == -1) return "";
+       return s.substr(sindex, minl);
     }
 };
