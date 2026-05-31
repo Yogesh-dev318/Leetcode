@@ -25,8 +25,8 @@ public:
             return head;
         }
         temp = head;
-        for(int i = 1; i < node; i++){
-            temp = temp->next;
+        for(int i=1;i<node;i++){
+            temp=temp->next;
         }
         ListNode* deleteNode = temp->next;
         temp->next = deleteNode->next;
