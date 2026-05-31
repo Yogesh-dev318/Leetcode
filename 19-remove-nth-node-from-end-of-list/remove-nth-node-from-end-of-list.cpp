@@ -25,7 +25,11 @@ public:
             return head;
         }
         temp = head;
-        for(int i=1;i<node;i++){
+        while(temp!=nullptr){
+            node--;
+            if(node==0){
+                break;
+            }
             temp=temp->next;
         }
         ListNode* deleteNode = temp->next;
