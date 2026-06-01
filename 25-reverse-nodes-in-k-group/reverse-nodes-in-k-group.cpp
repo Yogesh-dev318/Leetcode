@@ -10,46 +10,56 @@
  */
 class Solution {
 public:
-    void reverse(ListNode*& head) {
+    ListNode* reverse(ListNode* head){
         ListNode* curr = head;
-        ListNode* prev = NULL;
-        while (curr) {
-            ListNode* nxt = curr->next;
-            curr->next = prev;
-            prev = curr;
+        ListNode* pre = nullptr;
+        ListNode* nxt = nullptr;
+        while(curr != nullptr){
+            nxt = curr->next;
+            curr->next = pre;
+            pre = curr;
             curr = nxt;
         }
-        head = prev;
+        // head = pre;
+        return pre;
     }
-    ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode* counter=head;
-        int count=0;
-        while (counter!=NULL) {
-            counter=counter->next;
-            count++;
-        }
-        ListNode* prev=NULL;
-        ListNode* temp2=head;
-        for (int i=0;i<count/k;i++){
-            ListNode* temp3=temp2;
-            ListNode* temp4=temp2;
-            for(int i=0;i<k-1;i++){
-                temp2=temp2->next;
-            }
-            ListNode* nxt=temp2->next;
-            temp2->next=NULL;
-            reverse(temp3);
-            if(i==0) {
-                head=temp3;
-            }
-            temp2=temp4;
-            temp2->next=nxt;
-            if (prev!=NULL) {
-                prev->next=temp3;
-            }
-            prev=temp2;
-            temp2=temp2->next;
+    ListNode* kfind(ListNode* head, int k) {
+        k--;
+        while(head != nullptr && k > 0){
+            k--;
+            head = head->next;
         }
         return head;
+    }
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if(head == NULL || k == 1)
+        return head;
+
+        ListNode* temp = head;
+        ListNode* pre = nullptr;
+        ListNode* nxt = nullptr;
+        while(temp != nullptr){
+            ListNode* knode = kfind(temp , k);
+            if(knode == nullptr){
+                if(pre != nullptr){
+                    pre->next = temp;
+                }
+                break;
+            }
+            nxt = knode->next;
+            knode->next = nullptr;
+            knode = reverse(temp);
+            if(temp == head){
+                head = knode;
+            }
+            else{
+                pre->next = knode;
+            }
+            pre = temp;
+            temp = nxt;
+        }
+        return head;
+
+
     }
 };
