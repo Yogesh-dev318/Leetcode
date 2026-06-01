@@ -19,7 +19,7 @@ public:
             temp->next=prev;
             prev=temp;
             temp=front;
-        }
+        } 
         return prev;
     }
     bool isPalindrome(ListNode* head) {
@@ -34,13 +34,13 @@ public:
         ListNode* second=newhead;
         while(second!=nullptr){
             if(first->val!=second->val){
-                reverse(newhead);
+                // reverse(newhead);
                 return false;
             }
             first=first->next;
             second=second->next;
         }
-        reverse(newhead);
+        // reverse(newhead);
         return true;
     }
 };
