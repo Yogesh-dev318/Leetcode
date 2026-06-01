@@ -11,31 +11,48 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if(head==nullptr || head->next==nullptr){
+        // if(head==nullptr || head->next==nullptr){
+        //     return head;
+        // }
+        // map<int,int> mp;
+        // vector<int> arr;
+        // ListNode* temp=head;
+        // while(temp!=nullptr){
+        //     mp[temp->val]++;
+        //     temp=temp->next;
+        // }
+        // for(auto it:mp){
+        //     if(it.second==1){
+        //         arr.push_back(it.first);
+        //     }
+        // }
+        // int n=arr.size();
+        // if(n==0) return nullptr;
+        // ListNode* head2=new ListNode(arr[0]);
+        // ListNode* temp2=head2;
+        // for(int i=1;i<n;i++){
+        //     ListNode* newnode=new ListNode(arr[i]);
+        //     temp2->next=newnode;
+        //     temp2=temp2->next;
+        // }
+        // return head2;
+        if (head == NULL || head->next == NULL) {
             return head;
         }
-        map<int,int> mp;
-        vector<int> arr;
-        ListNode* temp=head;
-        while(temp!=nullptr){
-            mp[temp->val]++;
-            temp=temp->next;
-        }
-        for(auto it:mp){
-            if(it.second==1){
-                arr.push_back(it.first);
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* prev = dummy;
+        ListNode* curr = head;
+        while (curr != NULL) {
+            if (curr->next != NULL && curr->val == curr->next->val) {
+                while (curr->next != NULL && curr->val == curr->next->val) {
+                    curr = curr->next;
+                }
+                prev->next = curr->next;
+            } else {
+                prev = curr;
             }
+            curr = curr->next;
         }
-        int n=arr.size();
-        if(n==0) return nullptr;
-        ListNode* head2=new ListNode(arr[0]);
-        ListNode* temp2=head2;
-        for(int i=1;i<n;i++){
-            ListNode* newnode=new ListNode(arr[i]);
-            temp2->next=newnode;
-            temp2=temp2->next;
-        }
-        return head2;
-        
+        return dummy->next;
     }
 };
