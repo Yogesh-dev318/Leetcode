@@ -19,7 +19,6 @@ public:
                     continue;
                 }
                 return false;
-                
             }
             else{
                 st.push(s[i]);
