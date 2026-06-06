@@ -46,7 +46,6 @@ public:
     //     }
     //    } 
     //    return sum;
-
         int n=arr.size();
         long long sum=0;
         int m=1e9+7;
@@ -56,7 +55,6 @@ public:
             long long ls=i-NSL[i];
             long long rs=NSR[i]-i;
             long long totalways=ls*rs;
-
             long long totalsum=arr[i]*totalways;
             sum=(sum+totalsum)%m;
         }
