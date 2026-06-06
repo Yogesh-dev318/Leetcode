@@ -10,11 +10,11 @@ public:
         s.push(num[0]);
         for(int i = 1; i<num.length(); ++i){
             while(k > 0 && !s.empty() && num[i] < s.top()){
-                --k;
+                k--;
                 s.pop();
             }
             s.push(num[i]);
-            if(s.size()==1 && num[i]=='0'){
+            if(s.size()==1 && s.top()=='0'){
                 s.pop();
             }
         }
