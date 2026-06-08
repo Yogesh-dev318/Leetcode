@@ -8,7 +8,7 @@ public:
         string res = "";
         stack <char> s;
         s.push(num[0]);
-        for(int i = 1; i<num.length(); ++i){
+        for(int i = 1; i<num.length();i++){
             while(k > 0 && !s.empty() && num[i] < s.top()){
                 k--;
                 s.pop();
