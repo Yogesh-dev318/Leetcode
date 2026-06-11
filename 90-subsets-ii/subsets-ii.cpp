@@ -9,11 +9,9 @@ public:
     //     subsetsum(index+1,nums,ds,st,n);
     //     ds.pop_back();
     //     subsetsum(index+1,nums,ds,st,n);
-
     // }
     void subsetsum(int index,vector<int> &nums,vector<int> &ds,vector<vector<int>> &ans){
         // if(index==nums.size()){
-            
         //     return;
         // }
         ans.push_back(ds);
@@ -23,7 +21,6 @@ public:
             subsetsum(i+1,nums,ds,ans);
             ds.pop_back();
         }
-
     }
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         // int n=nums.size();
