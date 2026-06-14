@@ -19,16 +19,14 @@ public:
         bool reverseLevel = false;
         while(!q.empty()) {
             int size = q.size();
-            vector<int> level;
+            vector<int> level(size);
             for(int i = 0; i < size; i++) {
                 TreeNode* node = q.front();
                 q.pop();
-                level.push_back(node->val);
+                int index = reverseLevel ? size - 1 - i : i;
+                level[index] = node->val;
                 if(node->left) q.push(node->left);
                 if(node->right) q.push(node->right);
-            }
-            if(reverseLevel) {
-                reverse(level.begin(), level.end());
             }
             ans.push_back(level);
             reverseLevel = !reverseLevel;
