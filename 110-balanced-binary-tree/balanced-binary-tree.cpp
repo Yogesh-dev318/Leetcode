@@ -14,22 +14,31 @@ public:
     int height(TreeNode* root){
         if(root==NULL) return 0;
         int l=height(root->left);
+        if(l==-1) return -1;
         int r=height(root->right);
+        if(r==-1) return -1;
+        if(abs(l-r)>1){
+            return -1;
+        }
         return 1+max(l,r);
     }
     bool isBalanced(TreeNode* root) {
-        if(root==NULL){
+        // if(root==NULL){
+        //     return true;
+        // }
+        // bool left=isBalanced(root->left);
+        // bool right=isBalanced(root->right);
+        // bool diff=abs(height(root->left)-height(root->right))<=1;
+        // if(left && right && diff){
+        //     return true;
+        // }
+        // return false;
+        int bal=height(root);
+        if(bal==-1){
+            return false;
+        }
+        else{
             return true;
         }
-
-        bool left=isBalanced(root->left);
-        bool right=isBalanced(root->right);
-
-        bool diff=abs(height(root->left)-height(root->right))<=1;
-
-        if(left && right && diff){
-            return true;
-        }
-        return false;
     }
 };
