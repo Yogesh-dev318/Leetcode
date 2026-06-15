@@ -11,28 +11,42 @@
  */
 class Solution {
 public:
+    void BTR(TreeNode* root,int level,vector<int>& ds){
+        if(root==NULL) return;
+
+        if(level==ds.size()){
+            ds.push_back(root->val);
+        }
+        BTR(root->right,level+1,ds);
+        BTR(root->left,level+1,ds);
+    }
     vector<int> rightSideView(TreeNode* root) {
-        vector<vector<int>> ans;
-        vector<int> ans1;
-        queue<TreeNode*> q;
-        if(root==NULL) return ans1;
-        q.push(root);
-        while(!q.empty()){
-            vector<int> ds;
-            int size=q.size();
-            for(int i=0;i<size;i++){
-                TreeNode* temp=q.front();
-                q.pop();
-                if(temp->left!=NULL) q.push(temp->left);
-                if(temp->right!=NULL) q.push(temp->right);
-                ds.push_back(temp->val);
-            }
-            ans.push_back(ds);
-        }
-        int n=ans.size();
-        for(int i=0;i<n;i++){
-            ans1.push_back(ans[i].back());
-        }
-        return ans1;
+        // vector<vector<int>> ans;
+        // vector<int> ans1;
+        // queue<TreeNode*> q;
+        // if(root==NULL) return ans1;
+        // q.push(root);
+        // while(!q.empty()){
+        //     vector<int> ds;
+        //     int size=q.size();
+        //     for(int i=0;i<size;i++){
+        //         TreeNode* temp=q.front();
+        //         q.pop();
+        //         if(temp->left!=NULL) q.push(temp->left);
+        //         if(temp->right!=NULL) q.push(temp->right);
+        //         ds.push_back(temp->val);
+        //     }
+        //     ans.push_back(ds);
+        // }
+        // int n=ans.size();
+        // for(int i=0;i<n;i++){
+        //     ans1.push_back(ans[i].back());
+        // }
+        // return ans1;
+
+        vector<int> ds;
+        BTR(root,0,ds);
+        return ds;
+
     }
 };
