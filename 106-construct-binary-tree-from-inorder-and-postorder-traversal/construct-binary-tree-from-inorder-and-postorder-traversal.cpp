@@ -12,7 +12,7 @@
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        if(inorder.size()!=postorder.size()) return NULL;
+        // if(inorder.size()!=postorder.size()) return NULL;
         map<int,int> hm;
         for(int i=0;i<inorder.size();i++){
             hm[inorder[i]]=i;
