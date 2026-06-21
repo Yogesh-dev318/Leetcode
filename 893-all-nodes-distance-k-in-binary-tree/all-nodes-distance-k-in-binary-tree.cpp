@@ -54,14 +54,14 @@ public:
     void markParents(TreeNode* root,map<TreeNode*, TreeNode*>& parent) {
         queue<TreeNode*> q;
         q.push(root);
-        while (!q.empty()) {
+        while(!q.empty()){
             TreeNode* curr = q.front();
             q.pop();
-            if (curr->left) {
+            if(curr->left){
                 parent[curr->left] = curr;
                 q.push(curr->left);
             }
-            if (curr->right) {
+            if(curr->right){
                 parent[curr->right] = curr;
                 q.push(curr->right);
             }
@@ -75,24 +75,23 @@ public:
         q.push(target);
         vis[target] = true;
         int currLevel = 0;
-        while (!q.empty()) {
+        while(!q.empty()) {
             int size = q.size();
             if (currLevel == k)
                 break;
             currLevel++;
-            for (int i = 0; i < size; i++) {
+            for(int i = 0; i < size; i++) {
                 TreeNode* curr = q.front();
                 q.pop();
-                if (curr->left && !vis[curr->left]) {
+                if(curr->left && !vis[curr->left]){
                     vis[curr->left] = true;
                     q.push(curr->left);
                 }
-                if (curr->right && !vis[curr->right]) {
+                if(curr->right && !vis[curr->right]){
                     vis[curr->right] = true;
                     q.push(curr->right);
                 }
-                if (parent.find(curr) != parent.end() &&
-                    !vis[parent[curr]]) {
+                if(parent.find(curr)!=parent.end() && !vis[parent[curr]]) {
                     vis[parent[curr]] = true;
                     q.push(parent[curr]);
                 }
