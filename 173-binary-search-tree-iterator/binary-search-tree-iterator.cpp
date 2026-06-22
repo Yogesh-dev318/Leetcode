@@ -25,7 +25,10 @@ public:
         return !s.empty();
     }
     void pushAll(TreeNode *node) {
-        for (; node != NULL; s.push(node), node = node->left);
+        while(node!=NULL){
+            s.push(node);
+            node=node->left;
+        }
     }
 };
 
