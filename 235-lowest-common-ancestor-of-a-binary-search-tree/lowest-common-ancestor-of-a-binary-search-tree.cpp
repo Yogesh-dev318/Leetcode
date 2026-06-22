@@ -24,20 +24,30 @@ public:
         ds.pop_back();
     }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        vector<TreeNode*> arr1;
-        vector<TreeNode*> arr2;
-        vector<TreeNode*> ds1,ds2;
-        path(root,p,ds1,arr1);
-        path(root,q,ds2,arr2);
-        TreeNode* ans=NULL;
-        for(int i=0;i<min(arr1.size(),arr2.size());i++){
-            if(arr1[i]!=arr2[i]){
-                break;
-            }
-            else{
-                ans=arr1[i];
-            }
+        // vector<TreeNode*> arr1;
+        // vector<TreeNode*> arr2;
+        // vector<TreeNode*> ds1,ds2;
+        // path(root,p,ds1,arr1);
+        // path(root,q,ds2,arr2);
+        // TreeNode* ans=NULL;
+        // for(int i=0;i<min(arr1.size(),arr2.size());i++){
+        //     if(arr1[i]!=arr2[i]){
+        //         break;
+        //     }
+        //     else{
+        //         ans=arr1[i];
+        //     }
+        // }
+        // return ans;
+        if(root==NULL){
+            return NULL;
         }
-        return ans;
+        if(root->val<p->val && root->val<q->val){
+            return lowestCommonAncestor(root->right,p,q);
+        }
+        if(root->val>p->val && root->val>q->val){
+            return lowestCommonAncestor(root->left,p,q);
+        }
+        return root;
     }
 };
