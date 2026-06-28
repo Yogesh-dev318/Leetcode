@@ -29,19 +29,21 @@ public:
     //     inorder(originalRoot, curr->left, ans);
     //     inorder(originalRoot, curr->right, ans);
     // }
-    int dfs(TreeNode* node, int maxSoFar) {
-        if(node==NULL) return 0;
-        int count=0;
-        if(node->val>=maxSoFar) count = 1;
-        maxSoFar=max(maxSoFar, node->val);
-        count+=dfs(node->left,maxSoFar);
-        count+=dfs(node->right,maxSoFar);
-        return count;
+    int count = 0;
+    void dfs(TreeNode* node,int curMax) {
+        if (!node) return;
+        if (node->val >= curMax){
+            count++;
+            curMax = node->val;
+        }
+        dfs(node->left, curMax);
+        dfs(node->right, curMax);
     }
     int goodNodes(TreeNode* root) {
         // int ans = 0;
         // inorder(root, root, ans);
         // return ans;
-        return dfs(root,root->val);
+        dfs(root,root->val);
+        return count;
     }
 };
