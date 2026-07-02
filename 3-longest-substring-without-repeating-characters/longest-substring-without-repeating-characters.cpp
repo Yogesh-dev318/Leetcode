@@ -16,17 +16,31 @@ public:
         //     }
         // }
         // return ans == INT_MIN ? 0 : ans;
-        map<char, int> mp;
-        int l = 0;
-        int ans = 0;
-        for (int r = 0; r < n; r++) {
-            if (mp.find(s[r]) != mp.end() && mp[s[r]] >= l) {
-                l = mp[s[r]] + 1;
+
+        // map<char, int> mp;
+        // int l = 0;
+        // int ans = 0;
+        // for (int r = 0; r < n; r++) {
+        //     if (mp.find(s[r]) != mp.end() && mp[s[r]] >= l) {
+        //         l = mp[s[r]] + 1;
+        //     }
+        //     mp[s[r]] = r;
+        //     ans = max(ans, r - l + 1);
+        // }
+        // return ans;
+
+        unordered_set<char> st;
+        int maxlen=0;
+        int l=0;
+        for(int i=0;i<n;i++){
+            while(st.find(s[i])!=st.end()){
+                st.erase(s[l]);
+                l++;
             }
-            mp[s[r]] = r;
-            ans = max(ans, r - l + 1);
+            st.insert(s[i]);
+            maxlen=max(maxlen,i-l+1);
         }
-        return ans;
+        return maxlen;
     }
     
 };
