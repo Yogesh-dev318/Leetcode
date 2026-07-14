@@ -15,9 +15,10 @@ public:
         for(ListNode* head : lists){
             while(head){
                 nums.push_back(head->val);
+                cout<<head->val;
                 head = head->next;
             }
-            cout<<head;
+            
         }
         sort(nums.begin(), nums.end());
         ListNode* dummy = new ListNode(0);
