@@ -17,6 +17,7 @@ public:
                 nums.push_back(head->val);
                 head = head->next;
             }
+            cout<<head;
         }
         sort(nums.begin(), nums.end());
         ListNode* dummy = new ListNode(0);
